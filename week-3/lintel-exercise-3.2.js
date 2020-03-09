@@ -77,7 +77,7 @@ var postgres = postgresFactory.createDatabase({
 
 var mySqlFactory = new DatabaseFactory();
 var mySql = mySqlFactory.createDatabase({
-  databaseType: 'MySQL',
+  databaseType: 'MySql',
   username: "default",
   password: "password"
 });
