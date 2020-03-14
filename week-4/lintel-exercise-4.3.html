@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment name</title>
+
+    <!-- jQuery reference -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+  <button id='delete-button'>DELETE</button>
+<script>
+
+    $(function() {
+      $('#delete-button').click(function () {
+        $.ajax({
+          url: 'http://httpbin.org/delete',
+          dataType: 'json',
+          type: 'DELETE',
+          data: {firstName: 'Randy', lastName: 'Randallman', customer: true},
+          success: function (data, status) {
+            //console.log('First Name: ' + data.form.firstName + '\nLast Name: ' + data.form.lastName + '\nCustomer: ' + data.form.customer + '\nStatus: '+ status);
+            console.log(`First Name: ${data.form.firstName}
+Last Name: ${data.form.lastName}
+Customer: ${data.form.customer}
+Status: ${status}`);
+          }
+        })
+      })
+    });
+
+</script>
+
+</body>
+</html>
