@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 5.2 - The Proxy Pattern</title>
+
+    <!-- jquery Reference Library -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+<body>
+  <h2>Exercise 5.2 - The Proxy Pattern</h2>
+  <button id="test">Click Me!</button>
+<script>
+
+  var employee = {
+    firstName: "Randy",
+    lastName: "Randallman",
+    employeeID: 358789,
+    display: function() {
+      $("#test").html("");
+      $("#test").append("<div><p>First Name: " + this.firstName + "</p>" + "<p>Last Name: " + this.lastName + "</p>" + "<p>Employee ID: " + this.employeeID + "</p></div>");
+    }
+  }
+    $(function() {
+
+      $("html").css({"background-color": "#000000",
+                      "font-family": "arial"});
+
+      $("h2").css({"text-position": "center",
+                    "color": "#f0f0f0",
+                    "margin": "auto",
+                    "text-align": "center"});
+
+      $("#test").css({"height": "250px",
+                      "width": "250px",
+                      "background-color": "#e6ce7a",
+                      "color": "#f0f0f0",
+                      "display": "block",
+                      "margin": "auto"});
+
+      $("#test").click($.proxy(employee, "display"));
+    });
+</script>
+
+
+</body>
+</html>
