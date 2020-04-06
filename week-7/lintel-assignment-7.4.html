@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Assignment 7.4</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- JavaScript Libraries -->
+    <script src="../knockout-3.5.1.js"></script>
+</head>
+<body class="bg-info">
+
+  <div role="main" class="container">
+
+    <h2 class="text-light text-center">Other bindings</h2>
+
+    <table class="table table-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody data-bind="foreach:tutorials">
+        <tr>
+          <td data-bind="text: title"></td>
+          <td data-bind="text: description"></td>
+          <td><a data-bind="attr: { href: url }, style: { color: 'teal' }, text: url" target="_blank"></a></td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+<script>
+
+function tutorialViewModel() {
+    this.tutorials = ko.observableArray([
+      {title: "Grasshopper", description: "Google's app for learning JavaScript anywhere", url: "https://learn.grasshopper.app/"},
+      {title: "JavaScript 30", description: "Wes Bos's 30 day vanilla JS coding challenge", url: "https://javascript30.com/"},
+      {title: "JavaScript.info", description: "The modern JavaScript tutorial", url: "https://javascript.info/"},
+      {title: "W3Schools", description: "W3Schools JavaScript tutorial", url: "https://www.w3schools.com/js/"},
+      {title: "Tutorialspoint", description: "Text based JavaScript reference", url: "https://www.tutorialspoint.com/javascript/index.htm"}
+    ]);
+  }
+
+  ko.applyBindings(new tutorialViewModel());
+
+</script>
+
+</body>
+</html>
